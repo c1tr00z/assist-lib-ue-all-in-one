@@ -1,0 +1,28 @@
+﻿{
+  "FileVersion": 3,
+  "Version": 1,
+  "VersionName": "1.0",
+  "FriendlyName": "AssistLibUEAll",
+  "Description": "All in one version of AssistLIb plugins",
+  "Category": "Other",
+  "CreatedBy": "Igor 'c1tr00z' Nikitin",
+  "CreatedByURL": "",
+  "DocsURL": "",
+  "MarketplaceURL": "",
+  "CanContainContent": false,
+  "IsBetaVersion": false,
+  "IsExperimentalVersion": false,
+  "Installed": false,
+  "Modules": [
+    {
+      "Name": "AssistLibUEAllEditor",
+      "Type": "Editor",
+      "LoadingPhase": "PostEngineInit"
+    },
+    {
+      "Name": "AssistLibUEAllRuntime",
+      "Type": "Runtime",
+      "LoadingPhase": "Default"
+    }
+  ]
+}
