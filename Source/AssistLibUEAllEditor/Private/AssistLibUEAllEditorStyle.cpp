@@ -42,7 +42,7 @@ TSharedRef< FSlateStyleSet > FAssistLibUEAllEditorStyle::Create()
 	TSharedRef< FSlateStyleSet > Style = MakeShareable(new FSlateStyleSet("AssistLibUEAllStyle"));
 	Style->SetContentRoot(IPluginManager::Get().FindPlugin("AssistLibUEAll")->GetBaseDir() / TEXT("Resources"));
 
-	Style->Set("AssistLibUEAll.PluginAction", new IMAGE_BRUSH_SVG(TEXT("PlaceholderButtonIcon"), Icon20x20));
+	Style->Set("AssistLibUEAll.PluginAction", new IMAGE_BRUSH_SVG(TEXT("CollectDBIcon"), Icon20x20));
 	return Style;
 }
 
