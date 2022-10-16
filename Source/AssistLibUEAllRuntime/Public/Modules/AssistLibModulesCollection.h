@@ -15,5 +15,6 @@ class ASSISTLIBUEALLRUNTIME_API UAssistLibModulesCollection : public UDataAsset 
 	GENERATED_BODY()
 
 public:
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	TArray<TSubclassOf<AAssistLibModule>> ModulesClasses;
 };

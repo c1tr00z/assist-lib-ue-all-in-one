@@ -18,10 +18,11 @@ void AAssistLibModules::BeginPlay() {
 }
 
 void AAssistLibModules::InitModules(UAssistLibModulesCollection* ModulesCollection) {
-	for (UClass* ModulesClass : ModulesCollection->ModulesClasses) {
-		auto ModuleActor = GetWorld()->SpawnActor(ModulesClass);
-		auto Module = Cast<AAssistLibModule>(ModuleActor);
+	for (UClass* ModuleClass : ModulesCollection->ModulesClasses) {
+        UE_LOG(LogTemp, Warning, TEXT("Instantiate %s..."), *ModuleClass->GetName())
+		auto Module = Cast<AAssistLibModule>(GetWorld()->SpawnActor(ModuleClass));
 		Modules.Add(Module);
+		UE_LOG(LogTemp, Warning, TEXT("Instantiate of %s finished. Result: %s"), *ModuleClass->GetName(), *Module->GetName());
 	}
 }
 
