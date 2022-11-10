@@ -9,8 +9,8 @@
 /**
  * 
  */
-UCLASS()
-class ASSISTLIBUEALLRUNTIME_API UAssistLibGameInstance : public UObject {
+UCLASS(BlueprintType)
+class ASSISTLIBUEALLRUNTIME_API UAssistLibGameInstance : public UGameInstance {
 	GENERATED_BODY()
 
 public:
