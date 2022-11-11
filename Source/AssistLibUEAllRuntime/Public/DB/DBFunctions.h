@@ -22,28 +22,44 @@ public:
 	UDBCollection* GetDB() const;
 
 	template<typename T>
-	static TArray<T> GetAll(UWorld* World);
+	static TArray<T*> GetAll(UWorld* World);
+
+	template<typename T>
+	static T* GetByClass(UWorld* World);
 
 	UFUNCTION(BlueprintPure)
 	TArray<UDBEntry*> GetAllDBEntriesByClass(TSubclassOf<UDBEntry> Class) const;
+
+	UFUNCTION(BlueprintPure)
+	UDBEntry* GetDBEntryByClass(TSubclassOf<UDBEntry> Class) const;
 
 	UFUNCTION(BlueprintPure)
 	UDBEntry* GetDBEntryByClassAndName(TSubclassOf<UDBEntry> Class, FString Name) const;
 };
 
 template <typename T>
-TArray<T> UDBFunctions::GetAll(UWorld* World) {
+TArray<T*> UDBFunctions::GetAll(UWorld* World) {
 	auto DBStatic = GetDB(World);
 	auto Entries = DBStatic->Entries;
 
-	TArray<T> Result;
+	TArray<T*> Result;
 	for (UDBEntry* Entry : Entries)
 	{
-		T Item = Cast<T>(Entry);
+		T* Item = Cast<T>(Entry);
 		if (Item != nullptr)
 		{
 			Result.Add(Item);
 		}
 	}
 	return Result;
+}
+
+template <typename T>
+T* UDBFunctions::GetByClass(UWorld* World) {
+	auto AllOfClass = GetAll<T>(World);
+	if (AllOfClass.Num() == 0) {
+		return nullptr;
+	}
+
+	return AllOfClass[0];
 }

@@ -51,6 +51,21 @@ TArray<UDBEntry*> UDBFunctions::GetAllDBEntriesByClass(TSubclassOf<UDBEntry> Cla
 	return Result;
 }
 
+UDBEntry* UDBFunctions::GetDBEntryByClass(TSubclassOf<UDBEntry> Class) const {
+	auto DB = GetDB();
+	auto Entries = DB->Entries;
+
+	for (UDBEntry* Entry : Entries)
+	{
+		if (Entry->GetClass() == Class)
+		{
+			return Entry;
+		}
+	}
+
+	return nullptr;
+}
+
 UDBEntry* UDBFunctions::GetDBEntryByClassAndName(TSubclassOf<UDBEntry> Class, FString Name) const
 {
 	auto DB = GetDB();
