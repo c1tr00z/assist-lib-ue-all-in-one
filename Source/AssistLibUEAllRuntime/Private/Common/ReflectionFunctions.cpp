@@ -4,8 +4,7 @@
 #include "Common/ReflectionFunctions.h"
 
 UStruct* UReflectionFunctions::GetUStructByName(FString StructName) {
-	UObject* ClassPackage = ANY_PACKAGE;
-	return FindObject<UStruct>(ClassPackage, *StructName);
+	return FindObject<UStruct>(nullptr, *StructName);
 }
 
 TArray<UClass*> UReflectionFunctions::GetSubclassesOf(const UClass* ParentClass, bool IncludeAbstract) {
