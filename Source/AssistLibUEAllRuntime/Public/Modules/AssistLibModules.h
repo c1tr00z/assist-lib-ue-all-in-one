@@ -29,4 +29,18 @@ public:
 	UFUNCTION(BlueprintCallable)
 	AAssistLibModule* GetModuleByUClass(UClass* Class);
 
+	template <typename T>
+	T* GetModule();
 };
+
+template <typename T>
+T* AAssistLibModules::GetModule() {
+	for (auto Candidate : Modules) {
+		auto Module = Cast<T>(Candidate);
+		if (Module != nullptr) {
+			return Module;
+		}
+	}
+
+	return nullptr;
+}
