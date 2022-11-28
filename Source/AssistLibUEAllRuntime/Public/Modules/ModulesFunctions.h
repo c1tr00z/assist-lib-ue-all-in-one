@@ -45,5 +45,5 @@ T* UModulesFunctions::GetModule(UWorld* World) {
 		return nullptr;
 	}
 
-	GameMode->Modules->GetModule<T>();
+	return GameMode->Modules->GetModule<T>();
 }
